@@ -1,0 +1,8 @@
+{
+ "$schema":"https://openapi.vercel.sh/vercel.json",
+ "framework":null,
+ "buildCommand":"pnpm run build",
+ "outputDirectory":"vercel-dist",
+ "rewrites":[{"source":"/editor","destination":"/editor/index.html"}],
+ "headers":[{"source":"/(.*)","headers":[{"key":"X-Content-Type-Options","value":"nosniff"},{"key":"Referrer-Policy","value":"same-origin"},{"key":"X-Frame-Options","value":"DENY"}]}]
+}

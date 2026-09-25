@@ -1,0 +1,78 @@
+{
+  "name": "YOUR NAME",
+  "intro": "I shape footage into stories through thoughtful cuts, rhythm, and sound.",
+  "bio": "Video editor with a focus on storytelling, visual rhythm, and the details that make a film feel right.",
+  "email": "hello@example.com",
+  "linkedin": "",
+  "portrait": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600",
+  "software": [
+    {
+      "name": "Premiere Pro",
+      "level": 3
+    },
+    {
+      "name": "After Effects",
+      "level": 2
+    },
+    {
+      "name": "DaVinci Resolve",
+      "level": 3
+    },
+    {
+      "name": "Audition",
+      "level": 2
+    }
+  ],
+  "projects": [
+    {
+      "title": "Sintel",
+      "type": "Featured project · demo",
+      "role": "Short film / Sample footage",
+      "description": "A cinematic trailer from the Blender Foundation. Placeholder for your first major project and your contribution.",
+      "video": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+      "poster": "https://media.w3.org/2010/05/sintel/poster.png",
+      "id": "sample-0",
+      "featured": 1
+    },
+    {
+      "title": "Big Buck Bunny",
+      "type": "Featured project · demo",
+      "role": "Animation / Sample footage",
+      "description": "A Blender Foundation animated short. Placeholder for your second major project and your contribution.",
+      "video": "https://media.w3.org/2010/05/bunny/trailer.mp4",
+      "poster": "https://media.w3.org/2010/05/bunny/poster.png",
+      "id": "sample-1",
+      "featured": 2
+    },
+    {
+      "title": "Film excerpt · demo",
+      "video": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+      "poster": "https://media.w3.org/2010/05/sintel/poster.png",
+      "id": "sample-2",
+      "type": "Sample footage",
+      "role": "",
+      "description": "",
+      "featured": 0
+    },
+    {
+      "title": "Animation excerpt · demo",
+      "video": "https://media.w3.org/2010/05/bunny/trailer.mp4",
+      "poster": "https://media.w3.org/2010/05/bunny/poster.png",
+      "id": "sample-3",
+      "type": "Sample footage",
+      "role": "",
+      "description": "",
+      "featured": 0
+    },
+    {
+      "title": "Short edit · demo",
+      "video": "https://media.w3.org/2010/05/video/movie_300.mp4",
+      "poster": "https://media.w3.org/2010/05/video/poster.png",
+      "id": "sample-4",
+      "type": "Sample footage",
+      "role": "",
+      "description": "",
+      "featured": 0
+    }
+  ]
+}

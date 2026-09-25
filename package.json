@@ -1,0 +1,20 @@
+{
+  "name": "video-editor-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env.local scripts/dev.mjs",
+    "build": "node scripts/build-vercel.mjs",
+    "test": "node --test tests/vercel.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  },
+  "dependencies": {
+    "@vercel/blob": "2.8.0"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "packageManager": "pnpm@11.19.0"
+}

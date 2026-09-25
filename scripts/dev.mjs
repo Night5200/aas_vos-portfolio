@@ -1,0 +1,8 @@
+import {createServer} from 'node:http';
+import {readFile} from 'node:fs/promises';
+import {resolve,sep} from 'node:path';
+import {Readable} from 'node:stream';
+await import('./build-vercel.mjs');
+const root=resolve('vercel-dist');
+const modules=Object.fromEntries(await Promise.all(['portfolio','save','login','logout','upload'].map(async name=>[name,await import('../api/'+name+'.js')])));
+createServer(async(req,res)=>{try{const url=new URL(req.url,'http://127.0.0.1:4173');if(url.pathname.startsWith('/api/')){const mod=modules[url.pathname.slice(5)],handler=mod?.[req.method];if(!handler){res.writeHead(404);return res.end('Not found');}const headers=new Headers();for(const [key,value]of Object.entries(req.headers)){if(value)headers.set(key,Array.isArray(value)?value.join(', '):value);}const request=new Request(url,{method:req.method,headers,...(!['GET','HEAD'].includes(req.method)?{body:Readable.toWeb(req),duplex:'half'}:{})});const result=await handler(request);res.writeHead(result.status,Object.fromEntries(result.headers));if(result.body)Readable.fromWeb(result.body).pipe(res);else res.end();return;}const pathname=url.pathname==='/'?'/index.html':url.pathname==='/editor'?'/editor/index.html':url.pathname;const file=resolve(root,'.'+decodeURIComponent(pathname));if(!file.startsWith(root+sep)){res.writeHead(403);return res.end();}const data=await readFile(file);const mime={html:'text/html',css:'text/css',js:'text/javascript',svg:'image/svg+xml'}[file.split('.').pop()]||'application/octet-stream';res.writeHead(200,{'Content-Type':mime,'Cache-Control':'no-store'});res.end(data);}catch{res.writeHead(404);res.end('Not found');}}).listen(4173,'127.0.0.1',()=>console.log('Portfolio preview: http://127.0.0.1:4173'));
