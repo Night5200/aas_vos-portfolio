@@ -1,7 +1,7 @@
 import {createHmac,createHash,randomBytes,timingSafeEqual} from 'node:crypto';
 import {fail} from './http.mjs';
 const COOKIE='portfolio_session',LIFETIME=12*60*60;
-function config(){const password=process.env.ADMIN_PASSWORD,secret=process.env.SESSION_SECRET;if(!password||password.length<8||!secret||secret.length<32)fail('The private editor needs ADMIN_PASSWORD (8+ characters) and SESSION_SECRET (32+ characters) in Vercel.',503);return {password,key:createHash('sha256').update(secret+'\0'+password).digest()};}
+function config(){const password=process.env.ADMIN_PASSWORD,secret=process.env.SESSION_SECRET;if(!password||password.length<8||!secret||secret.length<32)fail('The private editr needs ADMIN_PASSWORD (8+ characters) and SESSION_SECRET (32+ characters) in Vercel.',503);return {password,key:createHash('sha256').update(secret+'\0'+password).digest()};}
 function equal(a,b){const x=createHash('sha256').update(a).digest(),y=createHash('sha256').update(b).digest();return timingSafeEqual(x,y);}
 function signature(payload,key){return createHmac('sha256',key).update(payload).digest('base64url');}
 export function checkPassword(password){return typeof password==='string'&&password.length<=1024&&equal(password,config().password);}
