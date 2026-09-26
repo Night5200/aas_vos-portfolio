@@ -8,13 +8,14 @@ The `/editor` page lets you upload videos, thumbnails and a portrait; edit your 
 
 1. Upload the contents of the `video-editor-portfolio-vercel` folder to a GitHub repository. `package.json`, `vercel.json`, `api`, `public`, `client` and `lib` must be at the repository root. Do not upload the ZIP file itself.
 2. In Vercel, choose **Add New → Project**, import that GitHub repository, and use **Other** as the framework. `vercel.json` supplies the build command and output folder. If the code lives in a subfolder, select that folder as the Vercel Root Directory.
-3. In the Vercel project's **Storage** tab, create a **public Vercel Blob** store and connect it to this project. Keep the default `BLOB_READ_WRITE_TOKEN` environment variable. A private Blob store will not work with this implementation.
+3. In the Vercel project's **Storage** tab, create a **public Vercel Blob** store and connect it to this project. Keep the supplied `BLOB_STORE_ID` and `BLOB_WEBHOOK_PUBLIC_KEY` variables. Vercel supplies runtime OIDC authentication automatically. Existing read-write-token connections are also supported. A private Blob store will not work with this implementation.
 4. In **Settings → Environment Variables**, add:
 
    | Variable | Value |
    | --- | --- |
-   | `BLOB_READ_WRITE_TOKEN` | Added by the Blob connection |
-   | `ADMIN_PASSWORD` | A random private password, at least 24 characters |
+   | `BLOB_STORE_ID` | Added by the Blob connection |
+   | `BLOB_WEBHOOK_PUBLIC_KEY` | Added by the Blob connection |
+   | `ADMIN_PASSWORD` | A random private password, at least 8 characters |
    | `SESSION_SECRET` | A different random value, at least 32 characters |
 
    Generate two separate values locally, one for each field:
@@ -69,7 +70,7 @@ The sample portrait and Blender/W3C clips are placeholders, not claims about you
 
 ## Verification and remaining setup
 
-Local build and six automated tests passed, covering session security, login, write authorization, persistence revision handling and project validation. The local browser check covered sign-in, the editor and the portfolio layout. Live Vercel Blob uploading still needs verification after you connect your own Vercel store and deploy.
+Automated tests cover session security, login, write authorization, persistence revisions, OIDC store detection, scoped presigned upload permissions and project validation. Live Vercel Blob uploading still needs verification after deployment.
 
 ## References
 

@@ -5,7 +5,33 @@ import {loadPortfolio,savePortfolio} from '../lib/storage.mjs';
 import {validate} from '../lib/validation.mjs';
 import {PUT as save} from '../api/save.js';import {POST as upload} from '../api/upload.js';import {POST as login} from '../api/login.js';
 import defaults from '../lib/defaults.json' with {type:'json'};
-process.env.ADMIN_PASSWORD='a-test-password-with-at-least-24-characters';process.env.SESSION_SECRET='a-separate-test-session-secret-of-at-least-32-characters';
+import {signedUpload} from '../api/upload.js';
+test('OIDC store connection supports reading and saving without a legacy token',async()=>{
+ const saved={BLOB_READ_WRITE_TOKEN:process.env.BLOB_READ_WRITE_TOKEN,BLOB_STORE_ID:process.env.BLOB_STORE_ID};
+ try{
+  delete process.env.BLOB_READ_WRITE_TOKEN;process.env.BLOB_STORE_ID='store_test';
+  const store={get:async()=>null,put:async()=>({etag:'oidc-revision'})};
+  assert.equal((await loadPortfolio(store)).configured,true);
+  assert.equal((await savePortfolio(defaults,null,store)).revision,'oidc-revision');
+ }finally{for(const [key,value] of Object.entries(saved)){if(value===undefined)delete process.env[key];else process.env[key]=value;}}
+});
+test('presigned uploads require login and reject cross-origin requests',async()=>{
+ const body={type:'blob.generate-presigned-url',payload:{}};
+ assert.equal((await upload(req('/api/upload',body))).status,401);
+ assert.equal((await upload(req('/api/upload',body,'portfolio_session='+createSession(),'https://attacker.test'))).status,403);
+});
+test('signed upload grants only one media path, type and size limit',async()=>{
+ const path='media/12345678-1234-1234-1234-123456789abc.png';
+ let issued;
+ const result=await signedUpload(path,JSON.stringify({type:'image/png',size:100}),async options=>{issued=options;return {test:true};});
+ assert.equal(issued.pathname,path);assert.deepEqual(issued.operations,['put']);
+ assert.deepEqual(issued.allowedContentTypes,['image/png']);assert.equal(issued.maximumSizeInBytes,20*1024**2);
+ assert.equal(result.urlOptions.allowOverwrite,false);
+ await assert.rejects(signedUpload('portfolio/content.json','{}'),e=>e.status===400);
+ await assert.rejects(signedUpload(path,JSON.stringify({type:'video/mp4',size:100})),e=>e.status===400);
+ await assert.rejects(signedUpload(path,JSON.stringify({type:'image/png',size:21*1024**2})),e=>e.status===400);
+});
+process.env.ADMIN_PASSWORD='Test1234';process.env.SESSION_SECRET='a-separate-test-session-secret-of-at-least-32-characters';
 function req(path,body={},cookie='',origin='https://portfolio.test'){return new Request('https://portfolio.test'+path,{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,Cookie:cookie},body:JSON.stringify(body)});}
 test('signed sessions reject tampering, expiry, password changes and forged Sites headers',()=>{const token=createSession();const request=new Request('https://portfolio.test',{headers:{Cookie:'portfolio_session='+token}});assert.equal(isOwner(request),true);assert.equal(isOwner(new Request('https://portfolio.test',{headers:{Cookie:'portfolio_session='+token+'x'}})),false);assert.equal(isOwner(request,Date.now()+13*60*60*1000),false);assert.equal(isOwner(new Request('https://portfolio.test',{headers:{'oai-authenticated-user-id':'fake','oai-authenticated-user-email':'adnan@zerodesignstudios.com'}})),false);const original=process.env.ADMIN_PASSWORD;process.env.ADMIN_PASSWORD+='rotated';assert.equal(isOwner(request),false);process.env.ADMIN_PASSWORD=original;assert.match(sessionCookie(request,token),/HttpOnly; SameSite=Strict;.*Secure/);});
 test('login handles wrong passwords, CSRF and valid credentials',async()=>{assert.equal((await login(req('/api/login',{password:'incorrect'}))).status,401);assert.equal((await login(req('/api/login',{password:process.env.ADMIN_PASSWORD},'','https://attacker.test'))).status,403);const result=await login(req('/api/login',{password:process.env.ADMIN_PASSWORD}));assert.equal(result.status,200);assert.match(result.headers.get('set-cookie'),/portfolio_session=/);assert.equal(checkPassword('wrong'),false);});
