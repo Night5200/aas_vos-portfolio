@@ -30,6 +30,8 @@ The `/editor` page lets you upload videos, thumbnails and a portrait; edit your 
 
 ## Using the editor
 
+- Portrait, landscape and square videos use their original proportions automatically. Video dimensions load as cards approach the screen; thumbnails provide the initial shape. Previews and the full player show the complete image without cropping. Existing projects work without re-uploading.
+
 - Upload MP4/WebM videos up to 2 GB and JPG/PNG/WebP images up to 20 MB. MP4 with H.264 video and AAC audio is a practical compatibility choice.
 - In **Software proficiency**, add or rename software and drag its slider from Beginner to Expert. The bar preview updates immediately; **Save changes** updates the website. You can also remove software entries.
 - Select **Featured 1** and **Featured 2** on two different projects. Other projects appear in More work.

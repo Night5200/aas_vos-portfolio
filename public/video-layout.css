@@ -1,0 +1,10 @@
+/* Use each video's intrinsic shape, including portrait and square footage. */
+.media{aspect-ratio:var(--media-ratio,16/9)}
+.media img,.media video{object-fit:contain}
+.media.is-portrait{max-width:340px;justify-self:center;margin-inline:auto}
+.small-project .media.is-portrait{max-width:260px}
+.more{align-items:start}
+#full-video{object-fit:contain}
+@media(max-width:650px){
+ .media.is-portrait{max-width:290px}
+}
