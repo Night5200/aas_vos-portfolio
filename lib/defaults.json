@@ -1,10 +1,10 @@
 {
   "name": "Aakash Rajput",
-  "intro": "Chuti",
-  "bio": "Video editor with a focus on storytelling, visual rhythm, and the details that make a film feel right.",
+  "intro": "Video Edtor",
+  "bio": "I got two jobs, flew to another city, found a new one, and worked on Dhurandhar, all before seeing my degree.\n\nI’m young, I'm motivated, and I'm inspired every day by the greats. \nI’m here to learn relentlessly, make work that matters, and contribute to taking Indian creativity to new heights.\nThere’s a long way to go. That’s exactly what excites me.",
   "email": "aakashrajput1209@gmail.com",
   "linkedin": "",
-  "portrait": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600",
+  "portrait": "/media/87b51864-edd8-487b-ab3c-f030cdcc70c4.jpg",
   "software": [
     {
       "name": "Premiere Pro",
@@ -74,6 +74,20 @@
       "role": "",
       "description": "",
       "featured": 0
+    }
+  ],
+  "brands": [
+    {
+      "name": "test 1",
+      "logo": "/media/998c49fe-5e15-4022-aaed-be8e926679cb.jpg"
+    },
+    {
+      "name": "test 2",
+      "logo": "/media/32bc4123-768d-47a2-8297-d500490c51cf.jpg"
+    },
+    {
+      "name": "test 3",
+      "logo": "/media/664979eb-f9f5-46eb-85c7-4169d2c41d38.png"
     }
   ]
 }
