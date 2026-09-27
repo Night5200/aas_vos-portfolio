@@ -121,3 +121,11 @@
 .brand-logos {
   padding: 28px 0;
 }
+
+.project-player,
+.project-player .inline-player {
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  background: #111212 !important;
+}
