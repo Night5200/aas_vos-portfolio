@@ -174,7 +174,8 @@
       "description": "",
       "video": "https://fast.wistia.net/embed/iframe/t7cwnpq3vs",
       "poster": "/media/6b1bf7aa-bbb2-4547-9b16-6f681f488e3c.png",
-      "featured": 0
+      "featured": 0,
+      "videoShape": "portrait"
     },
     {
       "id": "6b308999-d60c-416a-ad79-fdf7d0d35c05",
@@ -184,7 +185,8 @@
       "description": "",
       "video": "https://fast.wistia.net/embed/iframe/58cg8r6j5q",
       "poster": "/media/ce8e9394-3a3a-49f2-b11b-4fa4f901b1e9.png",
-      "featured": 0
+      "featured": 0,
+      "videoShape": "portrait"
     }
   ],
   "brands": [
