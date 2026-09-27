@@ -244,17 +244,6 @@
       "videoShape": "landscape"
     },
     {
-      "id": "05c2f643-f4af-4a83-8fcb-672bb3b17ba4",
-      "title": "Spider man Premiere",
-      "type": "Premiere BTS",
-      "role": "Editor",
-      "description": "",
-      "video": "https://fast.wistia.net/embed/iframe/coffobgu69",
-      "poster": "/media/09cf68d2-62d7-4e4e-a045-3253204f18ca.png",
-      "featured": 0,
-      "videoShape": "portrait"
-    },
-    {
       "id": "94ee5f67-1e85-4e4e-97ed-72179b91ec99",
       "title": "Beardo",
       "type": "UGC",
@@ -266,15 +255,14 @@
       "videoShape": "portrait"
     },
     {
-      "id": "2313027e-0b16-4757-8c93-fd2bd1c44a8c",
-      "title": "THUMS UP",
-      "type": "Promotional Video",
+      "id": "3e7ea99c-a732-437a-9ff3-d5cff621555a",
+      "title": "Spider Man Premiere",
+      "type": "Premiere BTS",
       "role": "Editor",
       "description": "",
-      "video": "https://fast.wistia.net/embed/iframe/2k1dkgua2i",
-      "poster": "/media/2c2ef645-b223-4cc4-8aa5-43c7b5ac35b9.png",
-      "featured": 0,
-      "videoShape": "portrait"
+      "video": "https://fast.wistia.net/embed/iframe/coffobgu69",
+      "poster": "/media/ee2325f0-128a-46ea-9815-f9af023f022c.png",
+      "featured": 0
     }
   ],
   "brands": [
