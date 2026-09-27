@@ -47,14 +47,15 @@
       "videoShape": "landscape"
     },
     {
-      "title": "Film excerpt · demo",
-      "video": "https://media.w3.org/2010/05/sintel/trailer.mp4",
-      "poster": "https://media.w3.org/2010/05/sintel/poster.png",
-      "id": "sample-2",
-      "type": "Sample footage",
-      "role": "",
-      "description": "",
-      "featured": 0
+      "title": "Mixi — Mobile Game Promo",
+      "video": "https://fast.wistia.net/embed/iframe/s4kqf0bq2n",
+      "poster": "/media/79278616-f99c-45c3-ad04-33fed2393c9c.png",
+      "id": "01b028d9-775f-48b9-b39b-d4cebc782f2c",
+      "type": "Mobile Game Promotional Ad",
+      "role": "Screen Replacement & Motion Design",
+      "description": "andled screen replacement and motion design for a mobile game promotional ad, integrating gameplay visuals into device screens and creating animated graphics to support the promotion.",
+      "featured": 0,
+      "videoShape": "landscape"
     },
     {
       "title": "Animation excerpt · demo",
