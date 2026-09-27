@@ -1,6 +1,12 @@
 /* Use each video's intrinsic shape, including portrait and square footage. */
-#featured{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px}
-.featured-project{display:block;margin:0;min-width:0}
+#featured{display:flex;flex-direction:column;gap:40px}
+.featured-project{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(220px,1fr);gap:32px;margin:0;min-width:0;align-items:center;padding-bottom:40px;border-bottom:1px solid var(--line)}
+.featured-project:last-child{padding-bottom:0;border:0}
+.featured-project:has(.portrait-player){grid-template-columns:minmax(180px,280px) minmax(0,480px);justify-content:start}
+.featured-project .project-player{height:auto;aspect-ratio:var(--ratio,1.7778)}
+.featured-project .project-player .media,.featured-project .project-player .inline-player{position:absolute;inset:0;width:100%;height:100%;max-width:100%}
+.featured-project .project-info{padding:0}
+.brands-empty{color:var(--muted);font-size:14px;margin:0;padding:20px 0}
 .project-info{padding-top:20px}
 .project-description{max-width:100%}
 .project-player{position:relative;background:#191a1a;height:360px;display:flex;align-items:center;justify-content:center}
@@ -14,7 +20,11 @@
 .brand-logos figure{margin:0;text-align:center;padding:20px;background:#191a1a}
 .brand-logos img{height:60px;width:100%;object-fit:contain}
 .brand-logos figcaption{font-size:12px;color:#aaa;margin-top:12px}
-@media(max-width:650px){#featured{grid-template-columns:1fr}.project-player{height:320px}}
+@media(max-width:650px){
+ .featured-project,.featured-project:has(.portrait-player){grid-template-columns:1fr;gap:18px}
+ .featured-project:has(.portrait-player){max-width:320px}
+ .project-player{height:320px}
+}
 .media{aspect-ratio:var(--media-ratio,16/9)}
 .media img,.media video{object-fit:contain}
 .media.is-portrait{max-width:340px;justify-self:center;margin-inline:auto}

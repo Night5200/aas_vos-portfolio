@@ -42,12 +42,17 @@ function media(project){
  return wrap;
 }
 const brands=portfolio.brands||[];
-if(brands.length){
+{
  const section=document.createElement('section');section.className='brands';
  const heading=document.createElement('h2');heading.className='section-label';heading.textContent="Brands I’ve worked with";
  const list=document.createElement('div');list.className='brand-logos';
  for(const brand of brands){const item=document.createElement('figure'),logo=document.createElement('img'),caption=document.createElement('figcaption');logo.src=brand.logo;logo.alt=brand.name;logo.loading='lazy';caption.textContent=brand.name;item.append(logo,caption);list.append(item);}
  section.append(heading,list);document.querySelector('#about').after(section);
+ if(!brands.length){
+  const note=document.createElement('p');note.className='brands-empty';
+  note.textContent=data.isOwner?'Add your brand names and logos in the editor, then save and wait for deployment.':'Brand collaborations will appear here.';
+  section.append(note);
+ }
 }
 portfolio.projects.sort((a,b)=>(a.featured||3)-(b.featured||3)).forEach((project,i)=>{const article=document.createElement('article');article.className=project.featured>0?'featured-project':'small-project';article.append(media(project));const info=document.createElement('div');info.className='project-info';if(project.featured>0){const type=document.createElement('p');type.className='project-type';type.textContent='0'+project.featured+' / '+project.type;info.append(type);}const title=document.createElement('h3');title.textContent=project.title;info.append(title);if(project.featured>0){const role=document.createElement('p');role.className='project-role';role.textContent=project.role;const description=document.createElement('p');description.className='project-description';description.textContent=project.description;info.append(role,description);}article.append(info);(project.featured>0?featured:more).append(article);});
 }
