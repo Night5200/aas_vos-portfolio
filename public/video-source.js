@@ -17,6 +17,9 @@ export function videoSource(value) {
   return {kind:'embed',provider:'Vimeo',src:embed.href};
  }
  if(['wistia.com','wistia.net','wi.st'].some(domain=>host===domain||host.endsWith('.'+domain))){
+  if(/^\/s\/[a-zA-Z0-9_-]+\/?$/.test(url.pathname))return {kind:'share',provider:'Wistia',src:url.href};
+  const script=url.pathname.match(/^\/embed\/([a-zA-Z0-9]{10})\.js$/);
+  if(script)return {kind:'embed',provider:'Wistia',src:'https://fast.wistia.net/embed/iframe/'+script[1]+'?autoPlay=true'};
   const match=url.pathname.match(/^\/(?:medias|m|embed\/iframe)\/([a-zA-Z0-9]{10})(?:\/manage)?\/?$/);
   if(!match)return null;
   return {kind:'embed',provider:'Wistia',src:'https://fast.wistia.net/embed/iframe/'+match[1]+'?autoPlay=true'};

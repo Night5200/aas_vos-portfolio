@@ -39,6 +39,22 @@ async function upload(file,update){
  update(100);return result.url;
 }
 function projects(){const list=document.querySelector('#projects');list.replaceChildren();state.projects.forEach((p,index)=>{const card=document.createElement('article');card.className='project-card';const head=document.createElement('div');head.className='card-head';const h=document.createElement('h3');h.textContent='Project '+(index+1);const remove=document.createElement('button');remove.type='button';remove.textContent='Remove project';remove.onclick=()=>{if(pending){message('Wait for uploads to finish before removing a project.',true);return;}state.projects.splice(index,1);changed();projects();};head.append(h,remove);const grid=document.createElement('div');grid.className='fields';grid.append(field('Project title',p.title,v=>p.title=v),select('Placement',p.featured,[[0,'More work'],[1,'Featured 1'],[2,'Featured 2']],v=>p.featured=v),field('Category',p.type,v=>p.type=v),field('Your role',p.role,v=>p.role=v));const description=field('Your contribution',p.description,v=>p.description=v,'textarea');description.className='wide';grid.append(description,videoLinkControl(p),uploadControl('Thumbnail',p.poster,'image',url=>p.poster=url));card.append(head,grid);list.append(card);});}
+function brands(){
+ state.brands??=[];
+ let section=document.querySelector('#brand-editor');
+ if(!section){section=document.createElement('section');section.id='brand-editor';form.querySelector('section').after(section);}
+ section.replaceChildren();
+ const title=document.createElement('h2');title.textContent="Brands I’ve worked with";
+ const add=document.createElement('button');add.type='button';add.textContent='Add brand';
+ add.onclick=()=>{state.brands.push({name:'',logo:''});changed();brands();};
+ section.append(title,add);
+ state.brands.forEach((brand,index)=>{
+ const row=document.createElement('div');row.className='fields';
+ const remove=document.createElement('button');remove.type='button';remove.textContent='Remove brand';
+ remove.onclick=()=>{if(pending)return;state.brands.splice(index,1);changed();brands();};
+ row.append(field('Brand name',brand.name,value=>brand.name=value),uploadControl('Brand logo',brand.logo,'image',url=>brand.logo=url),remove);section.append(row);
+ });
+}
 function software(){
  const list=document.querySelector('#software');list.replaceChildren();
  const levels=['','Beginner','Intermediate','Advanced','Expert'];
@@ -61,7 +77,7 @@ function software(){
   row.append(field('Software',s.name,v=>s.name=v),control,remove);list.append(row);
  });
 }
-async function load(){try{const data=await api('/api/portfolio');if(!data.isOwner){document.querySelector('#login-panel').hidden=false;form.hidden=true;message('Sign in to update your portfolio.');return;}document.querySelector('#login-panel').hidden=true;document.querySelector('#logout').hidden=false;state=data.portfolio;revision=data.revision;for(const key of ['name','intro','bio','email','linkedin']){form.elements[key].value=state[key];form.elements[key].addEventListener('input',()=>{state[key]=form.elements[key].value;changed();});}document.querySelector('#portrait-preview').src=state.portrait;const original=document.querySelector('#portrait-field');original.replaceChildren(uploadControl('Portrait',state.portrait,'image',url=>{state.portrait=url;document.querySelector('#portrait-preview').src=url;}));document.querySelector('#portrait-preview').hidden=true;projects();software();form.hidden=false;message(data.configured?'Only you can edit this portfolio.':'Add GITHUB_TOKEN in Vercel to enable saving.',!data.configured);}catch(e){message(e.message,true);}}
+async function load(){try{const data=await api('/api/portfolio');if(!data.isOwner){document.querySelector('#login-panel').hidden=false;form.hidden=true;message('Sign in to update your portfolio.');return;}document.querySelector('#login-panel').hidden=true;document.querySelector('#logout').hidden=false;state=data.portfolio;revision=data.revision;for(const key of ['name','intro','bio','email','linkedin']){form.elements[key].value=state[key];form.elements[key].addEventListener('input',()=>{state[key]=form.elements[key].value;changed();});}document.querySelector('#portrait-preview').src=state.portrait;const original=document.querySelector('#portrait-field');original.replaceChildren(uploadControl('Portrait',state.portrait,'image',url=>{state.portrait=url;document.querySelector('#portrait-preview').src=url;}));document.querySelector('#portrait-preview').hidden=true;projects();software();brands();form.hidden=false;message(data.configured?'Only you can edit this portfolio.':'Add GITHUB_TOKEN in Vercel to enable saving.',!data.configured);}catch(e){message(e.message,true);}}
 document.querySelector('#add-project').onclick=()=>{if(pending){message('Wait for uploads to finish before adding a project.',true);return;}state.projects.push({id:crypto.randomUUID(),title:'',type:'',role:'',description:'',video:'',poster:'',featured:0});changed();projects();document.querySelector('#projects').lastElementChild.scrollIntoView({behavior:'smooth',block:'center'});};
 document.querySelector('#add-software').onclick=()=>{state.software.push({name:'',level:2});changed();software();};
 form.addEventListener('submit',async e=>{e.preventDefault();if(pending||saving)return;const chosen=state.projects.filter(p=>p.featured);if(new Set(chosen.map(p=>p.featured)).size!==chosen.length){message('Choose a different project for each featured position.',true);status.scrollIntoView();return;}saving=true;lock();try{const result=await api('/api/save',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({portfolio:state,revision})});revision=result.revision;dirty=false;message('Saved to GitHub. Publishing completes after Vercel deploys.');document.querySelector('#save-note').textContent='All changes saved.';}catch(e){message(e.message,true);status.scrollIntoView({behavior:'smooth'});}finally{saving=false;lock();}});
