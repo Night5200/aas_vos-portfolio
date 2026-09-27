@@ -231,6 +231,16 @@
       "poster": "/media/47562437-f49d-42de-8f52-6eb583e7e091.png",
       "featured": 0,
       "videoShape": "landscape"
+    },
+    {
+      "id": "abe8aeb5-2459-4ec1-b2cd-8ba308aae295",
+      "title": "Sanan",
+      "type": "Corporate video",
+      "role": "Editor",
+      "description": "",
+      "video": "https://fast.wistia.net/embed/iframe/hjmmnvazb5",
+      "poster": "/media/e1f2a560-3a9f-4e4b-9833-b22f67a34b3e.png",
+      "featured": 0
     }
   ],
   "brands": [
