@@ -1,5 +1,28 @@
+import {videoSource} from '../public/video-source.js';
 import {upload as legacyUpload,uploadPresigned} from '@vercel/blob/client';
 let blobUpload=legacyUpload;
+function videoLinkControl(project){
+ const box=document.createElement('div');
+ const label=field('Video link',project.video,value=>{
+  project.video=value.trim();
+  if(project.id.startsWith('sample-'))project.id=crypto.randomUUID();
+  check();
+ },'url');
+ const input=label.querySelector('input');input.required=true;
+ input.placeholder='https://www.youtube.com/watch?v=…';
+ function check(){input.setCustomValidity(videoSource(project.video)?'':'Paste a YouTube, Vimeo, Wistia, or direct HTTPS MP4/WebM link.');}
+ check();
+ const hint=document.createElement('p');hint.className='upload-status';
+ hint.textContent='YouTube, Vimeo, Wistia, or a direct .mp4/.webm link. The host must allow playback on other websites. Hosted players open on click; direct videos also preview on hover.';
+ const shapeLabel=document.createElement('label');shapeLabel.textContent='Video shape';
+ const shape=document.createElement('select');
+ for(const [value,text] of [['auto','Automatic'],['landscape','Landscape (16:9)'],['portrait','Vertical (9:16)'],['square','Square (1:1)']]){
+  const option=document.createElement('option');option.value=value;option.textContent=text;shape.append(option);
+ }
+ shape.value=project.videoShape||'auto';
+ shape.onchange=()=>{project.videoShape=shape.value;changed();};
+ shapeLabel.append(shape);box.append(label,hint,shapeLabel);return box;
+}
 let state,revision,dirty=false,pending=0,saving=false;
 const form=document.querySelector('#editor-form'),status=document.querySelector('#status'),save=document.querySelector('#save');
 function message(text,error=false){status.textContent=text;status.classList.toggle('error',error);}
@@ -17,7 +40,7 @@ async function upload(file,update){
  const result=await blobUpload('media/'+crypto.randomUUID()+'.'+ext,file,{access:'public',contentType:type,handleUploadUrl:'/api/upload',clientPayload:JSON.stringify({type,size:file.size}),multipart:true,onUploadProgress:({percentage})=>update(Math.round(percentage))});
  return result.url;
 }
-function projects(){const list=document.querySelector('#projects');list.replaceChildren();state.projects.forEach((p,index)=>{const card=document.createElement('article');card.className='project-card';const head=document.createElement('div');head.className='card-head';const h=document.createElement('h3');h.textContent='Project '+(index+1);const remove=document.createElement('button');remove.type='button';remove.textContent='Remove project';remove.onclick=()=>{if(pending){message('Wait for uploads to finish before removing a project.',true);return;}state.projects.splice(index,1);changed();projects();};head.append(h,remove);const grid=document.createElement('div');grid.className='fields';grid.append(field('Project title',p.title,v=>p.title=v),select('Placement',p.featured,[[0,'More work'],[1,'Featured 1'],[2,'Featured 2']],v=>p.featured=v),field('Category',p.type,v=>p.type=v),field('Your role',p.role,v=>p.role=v));const description=field('Your contribution',p.description,v=>p.description=v,'textarea');description.className='wide';grid.append(description,uploadControl('Video',p.video,'video',url=>{p.video=url;p.id=p.id.startsWith('sample-')?crypto.randomUUID():p.id;}),uploadControl('Thumbnail',p.poster,'image',url=>p.poster=url));card.append(head,grid);list.append(card);});}
+function projects(){const list=document.querySelector('#projects');list.replaceChildren();state.projects.forEach((p,index)=>{const card=document.createElement('article');card.className='project-card';const head=document.createElement('div');head.className='card-head';const h=document.createElement('h3');h.textContent='Project '+(index+1);const remove=document.createElement('button');remove.type='button';remove.textContent='Remove project';remove.onclick=()=>{if(pending){message('Wait for uploads to finish before removing a project.',true);return;}state.projects.splice(index,1);changed();projects();};head.append(h,remove);const grid=document.createElement('div');grid.className='fields';grid.append(field('Project title',p.title,v=>p.title=v),select('Placement',p.featured,[[0,'More work'],[1,'Featured 1'],[2,'Featured 2']],v=>p.featured=v),field('Category',p.type,v=>p.type=v),field('Your role',p.role,v=>p.role=v));const description=field('Your contribution',p.description,v=>p.description=v,'textarea');description.className='wide';grid.append(description,videoLinkControl(p),uploadControl('Thumbnail',p.poster,'image',url=>p.poster=url));card.append(head,grid);list.append(card);});}
 function software(){
  const list=document.querySelector('#software');list.replaceChildren();
  const levels=['','Beginner','Intermediate','Advanced','Expert'];

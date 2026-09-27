@@ -5,6 +5,19 @@ import {loadPortfolio,savePortfolio} from '../lib/storage.mjs';
 import {validate} from '../lib/validation.mjs';
 import {PUT as save} from '../api/save.js';import {POST as upload} from '../api/upload.js';import {POST as login} from '../api/login.js';
 import defaults from '../lib/defaults.json' with {type:'json'};
+import {videoSource} from '../public/video-source.js';
+test('hosted links convert to trusted players and preserve Vimeo private hashes',()=>{
+ assert.match(videoSource('https://youtu.be/dQw4w9WgXcQ').src,/youtube-nocookie.com\/embed\/dQw4w9WgXcQ/);
+ assert.equal(videoSource('https://youtube.com/shorts/dQw4w9WgXcQ').portrait,true);
+ assert.equal(new URL(videoSource('https://vimeo.com/123456789/abcdef').src).searchParams.get('h'),'abcdef');
+ for(const link of ['https://home.wistia.com/medias/e4a27b971d','https://fast.wistia.net/embed/iframe/e4a27b971d','https://example.wistia.com/m/e4a27b971d']){
+  assert.equal(videoSource(link).provider,'Wistia');assert.match(videoSource(link).src,/embed\/iframe\/e4a27b971d/);
+ }
+ assert.equal(videoSource('https://cdn.example.com/movie.mp4?token=test').kind,'direct');
+ for(const link of ['javascript:alert(1)','https://youtube.com.evil.test/watch?v=dQw4w9WgXcQ','https://example.com/page','https://home.wistia.com/s/unknown','https://user:pass@example.com/movie.mp4'])assert.equal(videoSource(link),null);
+ const p=structuredClone(defaults);p.projects[0].video='https://home.wistia.com/medias/e4a27b971d';p.projects[0].videoShape='portrait';assert.equal(validate(p),p);
+ p.projects[0].video='https://example.com/page';assert.throws(()=>validate(p));
+});
 import {signedUpload} from '../api/upload.js';
 test('OIDC store connection supports reading and saving without a legacy token',async()=>{
  const saved={BLOB_READ_WRITE_TOKEN:process.env.BLOB_READ_WRITE_TOKEN,BLOB_STORE_ID:process.env.BLOB_STORE_ID};

@@ -5,6 +5,8 @@
 .small-project .media.is-portrait{max-width:260px}
 .more{align-items:start}
 #full-video{object-fit:contain}
+#full-video[hidden],#embedded-video[hidden]{display:none}
+#embedded-video{display:block;width:100%;aspect-ratio:16/9;max-height:72vh;border:0;background:#000;margin-inline:auto}
 @media(max-width:650px){
  .media.is-portrait{max-width:290px}
 }

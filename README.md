@@ -30,13 +30,17 @@ The `/editor` page lets you upload videos, thumbnails and a portrait; edit your 
 
 ## Using the editor
 
+- Paste a **Video link** instead of uploading a video: YouTube, Vimeo, Wistia, or a direct HTTPS MP4/WebM URL. Existing Blob video URLs keep working. Thumbnail and portrait uploads still use Blob, as does saving portfolio details.
+- For Wistia, paste a media link such as `https://home.wistia.com/medias/e4a27b971d` or its iframe URL. Short `/s/` share links are not supported; use the media URL. The player follows [Wistia's iframe format](https://docs.wistia.com/docs/construct-a-wistia-embed-code).
+- Hosted players open on click. Direct video files retain muted hover previews. Select Vertical, Landscape or Square for hosted video framing; Automatic uses the thumbnail on cards and recognizes YouTube Shorts. Allow embedding in your video host's settings.
+
 - Portrait, landscape and square videos use their original proportions automatically. Video dimensions load as cards approach the screen; thumbnails provide the initial shape. Previews and the full player show the complete image without cropping. Existing projects work without re-uploading.
 
-- Upload MP4/WebM videos up to 2 GB and JPG/PNG/WebP images up to 20 MB. MP4 with H.264 video and AAC audio is a practical compatibility choice.
+- Upload JPG/PNG/WebP thumbnails and portraits up to 20 MB. Add videos through the Video link field.
 - In **Software proficiency**, add or rename software and drag its slider from Beginner to Expert. The bar preview updates immediately; **Save changes** updates the website. You can also remove software entries.
 - Select **Featured 1** and **Featured 2** on two different projects. Other projects appear in More work.
 - Uploaded media has public URLs. The editor and write APIs require your password; the published portfolio and its content are public.
-- Files upload directly to Vercel Blob using multipart uploads, with progress and retry support. They do not pass through GitHub or Vercel's small API request-body limit.
+- Images upload directly to Vercel Blob with progress and retry support. Linked videos play from the selected host.
 - **Save changes** publishes the form contents to the portfolio. Uploading alone does not add a project to the page.
 - Removing a project removes its listing when saved. It does not permanently delete the media from storage.
 - Editing in two tabs at once is protected by a saved revision check. If another tab saves first, reload before making a new save.
