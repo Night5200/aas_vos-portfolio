@@ -264,6 +264,16 @@
       "poster": "/media/32b19e21-0ef3-45c0-8506-286000d46c00.png",
       "featured": 0,
       "videoShape": "portrait"
+    },
+    {
+      "id": "2313027e-0b16-4757-8c93-fd2bd1c44a8c",
+      "title": "THUMS UP",
+      "type": "Promotional Video",
+      "role": "Editor",
+      "description": "",
+      "video": "https://fast.wistia.net/embed/iframe/2k1dkgua2i",
+      "poster": "/media/b254d380-ed7e-4f3f-94c5-f49777b6b96e.png",
+      "featured": 0
     }
   ],
   "brands": [
