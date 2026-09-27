@@ -143,6 +143,17 @@
       "video": "https://fast.wistia.net/embed/iframe/y6dr533nlc",
       "poster": "/media/0aa54be2-533d-4ad9-9246-80e66223de7e.png",
       "featured": 0
+    },
+    {
+      "id": "486f4e26-8d35-43e6-840a-054860520f29",
+      "title": "Crunchyroll",
+      "type": "Onine Promotional Video",
+      "role": "Editor",
+      "description": "",
+      "video": "https://fast.wistia.net/embed/iframe/zaw8nzcaj7",
+      "poster": "/media/9c7f404f-3bf0-4ebf-b892-8b097fea511b.png",
+      "featured": 0,
+      "videoShape": "portrait"
     }
   ],
   "brands": [
