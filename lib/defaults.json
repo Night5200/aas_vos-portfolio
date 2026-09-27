@@ -111,6 +111,17 @@
       "poster": "/media/cdc8dd9e-c59b-4c55-b667-bd236bf0bd11.png",
       "featured": 0,
       "videoShape": "portrait"
+    },
+    {
+      "id": "e6e1ca8a-f7ef-4221-afb1-90c02642f599",
+      "title": "Unicorn 100th stores",
+      "type": "DVC",
+      "role": "Editor",
+      "description": "",
+      "video": "https://fast.wistia.net/embed/iframe/qski2cglkf",
+      "poster": "/media/fa7c36c1-4b14-4fa9-a04a-844f7d0f56bb.png",
+      "featured": 0,
+      "videoShape": "landscape"
     }
   ],
   "brands": [
