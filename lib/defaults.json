@@ -53,7 +53,7 @@
       "id": "01b028d9-775f-48b9-b39b-d4cebc782f2c",
       "type": "Mobile Game Promotional Ad",
       "role": "Screen Replacement & Motion Design",
-      "description": "andled screen replacement and motion design for a mobile game promotional ad, integrating gameplay visuals into device screens and creating animated graphics to support the promotion.",
+      "description": "Handled screen replacement and motion design for a mobile game promotional ad, integrating gameplay visuals into device screens and creating animated graphics to support the promotion.",
       "featured": 0,
       "videoShape": "landscape"
     },
@@ -69,14 +69,15 @@
       "videoShape": "landscape"
     },
     {
-      "title": "Short edit · demo",
-      "video": "https://media.w3.org/2010/05/video/movie_300.mp4",
-      "poster": "https://media.w3.org/2010/05/video/poster.png",
-      "id": "sample-4",
-      "type": "Sample footage",
-      "role": "",
+      "title": "SMFG Father’s Day",
+      "video": "https://fast.wistia.net/embed/iframe/4yv105ekwu",
+      "poster": "/media/8cd580b9-6e43-4456-b509-107576d2c01e.png",
+      "id": "f9b59ecc-1805-4a3a-9027-e81cb08a1fb4",
+      "type": "Digital Film / Branded Content / AI Film",
+      "role": "Editor & AI Artist",
       "description": "",
-      "featured": 0
+      "featured": 0,
+      "videoShape": "landscape"
     }
   ],
   "brands": [
