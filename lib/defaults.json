@@ -187,6 +187,16 @@
       "poster": "/media/ce8e9394-3a3a-49f2-b11b-4fa4f901b1e9.png",
       "featured": 0,
       "videoShape": "portrait"
+    },
+    {
+      "id": "aacd3132-d825-42ff-bf15-d7ef4e0f13ed",
+      "title": "Bellavita",
+      "type": "UGC ",
+      "role": "Editor and sound",
+      "description": "",
+      "video": "https://fast.wistia.net/embed/iframe/71o4ko8hap",
+      "poster": "/media/a46e024a-95fb-4444-8b16-b33405b361c2.png",
+      "featured": 0
     }
   ],
   "brands": [
