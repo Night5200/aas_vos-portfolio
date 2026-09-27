@@ -79,16 +79,72 @@
   ],
   "brands": [
     {
-      "name": "test 1",
-      "logo": "/media/41bb1acf-4fa7-47b9-8681-ab7ad8bfeea2.png"
+      "name": "Thums Up",
+      "logo": "/media/2ab2002b-adfa-4585-8d32-2785705fecf2.png"
     },
     {
-      "name": "test 2",
-      "logo": "/media/5c4e1d77-afb1-4e6c-80b7-67890c20ac85.png"
+      "name": "Coke Stuio",
+      "logo": "/media/7a54ae2a-4d90-4966-a6d8-6fb217f14539.png"
     },
     {
-      "name": "test 3",
-      "logo": "/media/d7dce4cc-219f-4075-978f-b0a22550fb75.png"
+      "name": "Crunchyroll",
+      "logo": "/media/8eb625f4-25ef-411c-94c5-d2dcdb6dd46a.png"
+    },
+    {
+      "name": "Sony yay",
+      "logo": "/media/631b7023-dcab-4220-980c-abc36f8061ac.png"
+    },
+    {
+      "name": "Mixi",
+      "logo": "/media/f8b94353-8a30-44c3-8ab0-fc6b04398c8b.png"
+    },
+    {
+      "name": "INA Solar",
+      "logo": "/media/abdda9ba-723e-40bc-8161-79dd0bfefd6a.png"
+    },
+    {
+      "name": "Vi - Vodafone India",
+      "logo": "/media/2942a6c3-4f90-43fb-9abc-81f8464e3107.png"
+    },
+    {
+      "name": "Astral pipes",
+      "logo": "/media/dd420651-f37e-4c4b-96b3-e5a191dff56b.png"
+    },
+    {
+      "name": "Rushr",
+      "logo": "/media/ccbdf61c-5cef-4fe3-8d9e-e1c0d3d11e50.png"
+    },
+    {
+      "name": "Bellavita",
+      "logo": "/media/f68e80c5-1cca-43c6-9c89-501f224dfe01.png"
+    },
+    {
+      "name": "Fireboltt",
+      "logo": "/media/4cbfb9b2-1775-490f-a4b0-5d2d4d0f5f88.png"
+    },
+    {
+      "name": "Beardo",
+      "logo": "/media/e99429da-b964-4e47-b470-5a29b24a8805.png"
+    },
+    {
+      "name": "Dhurandhar",
+      "logo": "/media/9c6f6a66-e564-42ca-9e1d-5c0dbc162845.png"
+    },
+    {
+      "name": "Spider man",
+      "logo": "/media/af165e07-902e-47c9-b362-538885e33646.png"
+    },
+    {
+      "name": "SHEIN",
+      "logo": "/media/a1258436-34df-4c96-b8ee-39e768e5c17d.png"
+    },
+    {
+      "name": "GIVA",
+      "logo": "/media/8d05d37c-c8fc-49ad-a8c1-ce0f65316d3f.png"
+    },
+    {
+      "name": "ZARA",
+      "logo": "/media/6f3733e6-5e64-467e-989c-8c7cc28ef64f.png"
     }
   ]
 }
