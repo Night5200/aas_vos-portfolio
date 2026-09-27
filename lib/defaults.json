@@ -273,7 +273,8 @@
       "description": "",
       "video": "https://fast.wistia.net/embed/iframe/2k1dkgua2i",
       "poster": "/media/b254d380-ed7e-4f3f-94c5-f49777b6b96e.png",
-      "featured": 0
+      "featured": 0,
+      "videoShape": "portrait"
     }
   ],
   "brands": [
