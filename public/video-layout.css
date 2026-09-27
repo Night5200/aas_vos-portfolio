@@ -46,3 +46,62 @@
 @media(max-width:650px){
  .media.is-portrait{max-width:290px}
 }
+
+/* More work: fit each video's shape */
+.more {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 24px;
+  align-items: start;
+}
+
+.small-project .project-player {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: transparent;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.small-project .project-player.portrait-player {
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  max-width: 280px;
+  margin-inline: auto;
+}
+
+.small-project .project-player .media,
+.small-project .project-player .inline-player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.small-project .project-info h3 {
+  font-size: 20px;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.stop-player {
+  padding: 5px 8px;
+  font-size: 10px;
+  top: 6px;
+  right: 6px;
+}
+
+@media (max-width: 900px) {
+  .more {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 550px) {
+  .more {
+    grid-template-columns: 1fr;
+  }
+}
