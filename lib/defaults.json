@@ -122,6 +122,17 @@
       "poster": "/media/fa7c36c1-4b14-4fa9-a04a-844f7d0f56bb.png",
       "featured": 0,
       "videoShape": "landscape"
+    },
+    {
+      "id": "d6279901-eb11-459a-aeb7-4b1177cab6ba",
+      "title": "INA Solar BachatLal",
+      "type": "TVC / DVC",
+      "role": "Editor and VFX",
+      "description": "",
+      "video": "https://fast.wistia.net/embed/iframe/t6pk1dm03b",
+      "poster": "/media/ef940517-8908-4493-9a1c-58ced8ded7ad.png",
+      "featured": 0,
+      "videoShape": "landscape"
     }
   ],
   "brands": [
