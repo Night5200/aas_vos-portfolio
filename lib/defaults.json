@@ -240,7 +240,8 @@
       "description": "",
       "video": "https://fast.wistia.net/embed/iframe/hjmmnvazb5",
       "poster": "/media/e1f2a560-3a9f-4e4b-9833-b22f67a34b3e.png",
-      "featured": 0
+      "featured": 0,
+      "videoShape": "landscape"
     },
     {
       "id": "05c2f643-f4af-4a83-8fcb-672bb3b17ba4",
@@ -250,7 +251,8 @@
       "description": "",
       "video": "https://fast.wistia.net/embed/iframe/coffobgu69",
       "poster": "/media/26c43165-1329-4004-a0cd-5f6908d80706.png",
-      "featured": 0
+      "featured": 0,
+      "videoShape": "portrait"
     },
     {
       "id": "94ee5f67-1e85-4e4e-97ed-72179b91ec99",
@@ -260,7 +262,8 @@
       "description": "",
       "video": "https://fast.wistia.net/embed/iframe/9j46jp98t1",
       "poster": "/media/32b19e21-0ef3-45c0-8506-286000d46c00.png",
-      "featured": 0
+      "featured": 0,
+      "videoShape": "portrait"
     }
   ],
   "brands": [
