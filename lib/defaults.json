@@ -58,14 +58,15 @@
       "videoShape": "landscape"
     },
     {
-      "title": "Animation excerpt · demo",
-      "video": "https://media.w3.org/2010/05/bunny/trailer.mp4",
-      "poster": "https://media.w3.org/2010/05/bunny/poster.png",
-      "id": "sample-3",
-      "type": "Sample footage",
-      "role": "",
-      "description": "",
-      "featured": 0
+      "title": "INA Solar",
+      "video": "https://fast.wistia.net/embed/iframe/3ic91tn7c2",
+      "poster": "/media/238827cc-e52e-4c1e-9280-7bd937c15993.png",
+      "id": "32cfab82-0189-4f92-900f-9e1c77577144",
+      "type": "TVC / Advertising",
+      "role": "Editor & VFX ",
+      "description": "Worked on the INA Solar TVC, handling green screen set extensions, basic editing, AI-generated backgrounds, and VFX integration to help build and finish the final commercial.",
+      "featured": 0,
+      "videoShape": "landscape"
     },
     {
       "title": "Short edit · demo",
