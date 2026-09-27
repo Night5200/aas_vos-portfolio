@@ -1,9 +1,9 @@
 {
   "name": "Aakash Rajput",
-  "intro": "Video Edtor",
+  "intro": "Video Editor ",
   "bio": "I got two jobs, flew to another city, found a new one, and worked on Dhurandhar, all before seeing my degree.\n\nI’m young, I'm motivated, and I'm inspired every day by the greats. \nI’m here to learn relentlessly, make work that matters, and contribute to taking Indian creativity to new heights.\nThere’s a long way to go. That’s exactly what excites me.",
   "email": "aakashrajput1209@gmail.com",
-  "linkedin": "",
+  "linkedin": "https://www.linkedin.com/in/aakash-rajput-2aaa99397",
   "portrait": "/media/87b51864-edd8-487b-ab3c-f030cdcc70c4.jpg",
   "software": [
     {
@@ -25,9 +25,9 @@
   ],
   "projects": [
     {
-      "title": "Sintel",
-      "type": "Featured project · demo",
-      "role": "Short film / Sample footage",
+      "title": "DHURANDHAR",
+      "type": "Featured project",
+      "role": "Film Edit | Behind the Scenes",
       "description": "",
       "video": "https://fast.wistia.net/embed/iframe/h81jo698yw",
       "poster": "/media/f719903e-031b-413f-929c-0b40ddcdfecb.png",
@@ -36,14 +36,15 @@
       "videoShape": "portrait"
     },
     {
-      "title": "Big Buck Bunny",
-      "type": "Featured project · demo",
-      "role": "Animation / Sample footage",
-      "description": "A Blender Foundation animated short. Placeholder for your second major project and your contribution.",
-      "video": "https://youtu.be/OwJ7bmHud-c?si=OYKid_9pN4U9dJek",
-      "poster": "https://media.w3.org/2010/05/bunny/poster.png",
+      "title": "SPIDER MAN : BRAND NEW DAY",
+      "type": "Featured project",
+      "role": "Online Editing",
+      "description": "",
+      "video": "https://fast.wistia.net/embed/iframe/kyrv46qqib",
+      "poster": "/media/d5b775ee-09c9-44fe-b491-5d3504a1f256.png",
       "id": "80d3919e-df61-49ba-8949-303c284404f5",
-      "featured": 2
+      "featured": 2,
+      "videoShape": "landscape"
     },
     {
       "title": "Film excerpt · demo",
