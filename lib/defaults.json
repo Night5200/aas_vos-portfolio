@@ -220,6 +220,17 @@
       "poster": "/media/c9bde931-099e-422c-aab0-5b3aaab48e3a.png",
       "featured": 0,
       "videoShape": "landscape"
+    },
+    {
+      "id": "5f7802d4-1d9f-4691-9906-b53785309f7f",
+      "title": "Moira Sariya ",
+      "type": "Corporate Video",
+      "role": "Editor and sound",
+      "description": "",
+      "video": "https://fast.wistia.net/embed/iframe/o7cwxatuaa",
+      "poster": "/media/47562437-f49d-42de-8f52-6eb583e7e091.png",
+      "featured": 0,
+      "videoShape": "landscape"
     }
   ],
   "brands": [
