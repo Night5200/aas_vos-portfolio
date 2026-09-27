@@ -165,6 +165,16 @@
       "poster": "/media/71292c2e-4e06-4c80-bc55-c008ac55b818.png",
       "featured": 0,
       "videoShape": "portrait"
+    },
+    {
+      "id": "d7322b3d-11a7-4f4f-9fd0-fe0d20c6ba72",
+      "title": "Baseer x Thums Up",
+      "type": "Promotional Video",
+      "role": "Editor and VFX",
+      "description": "",
+      "video": "https://fast.wistia.net/embed/iframe/t7cwnpq3vs",
+      "poster": "/media/6b1bf7aa-bbb2-4547-9b16-6f681f488e3c.png",
+      "featured": 0
     }
   ],
   "brands": [
