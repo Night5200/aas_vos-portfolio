@@ -28,10 +28,10 @@
       "title": "Sintel",
       "type": "Featured project · demo",
       "role": "Short film / Sample footage",
-      "description": "A cinematic trailer from the Blender Foundation. Placeholder for your first major project and your contribution.",
-      "video": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+      "description": "",
+      "video": "https://youtu.be/OwJ7bmHud-c?si=OYKid_9pN4U9dJek",
       "poster": "https://media.w3.org/2010/05/sintel/poster.png",
-      "id": "sample-0",
+      "id": "66ffba95-e9e9-49cd-93b5-ca44c7b738ff",
       "featured": 1
     },
     {
@@ -39,9 +39,9 @@
       "type": "Featured project · demo",
       "role": "Animation / Sample footage",
       "description": "A Blender Foundation animated short. Placeholder for your second major project and your contribution.",
-      "video": "https://media.w3.org/2010/05/bunny/trailer.mp4",
+      "video": "https://youtu.be/OwJ7bmHud-c?si=OYKid_9pN4U9dJek",
       "poster": "https://media.w3.org/2010/05/bunny/poster.png",
-      "id": "sample-1",
+      "id": "80d3919e-df61-49ba-8949-303c284404f5",
       "featured": 2
     },
     {
