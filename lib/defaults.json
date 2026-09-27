@@ -142,7 +142,8 @@
       "description": "",
       "video": "https://fast.wistia.net/embed/iframe/y6dr533nlc",
       "poster": "/media/0aa54be2-533d-4ad9-9246-80e66223de7e.png",
-      "featured": 0
+      "featured": 0,
+      "videoShape": "landscape"
     },
     {
       "id": "486f4e26-8d35-43e6-840a-054860520f29",
