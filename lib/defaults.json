@@ -8,19 +8,19 @@
   "software": [
     {
       "name": "Premiere Pro",
-      "level": 3
+      "level": 4
     },
     {
       "name": "After Effects",
-      "level": 2
-    },
-    {
-      "name": "DaVinci Resolve",
       "level": 3
     },
     {
-      "name": "Audition",
+      "name": "DaVinci Resolve",
       "level": 2
+    },
+    {
+      "name": "Higgsfield",
+      "level": 3
     }
   ],
   "projects": [
@@ -64,7 +64,7 @@
       "id": "32cfab82-0189-4f92-900f-9e1c77577144",
       "type": "TVC / Advertising",
       "role": "Editor & VFX ",
-      "description": "Worked on the INA Solar TVC, handling green screen set extensions, basic editing, AI-generated backgrounds, and VFX integration to help build and finish the final commercial.",
+      "description": "",
       "featured": 0,
       "videoShape": "landscape"
     },
