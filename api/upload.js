@@ -1,37 +1,18 @@
-import {handleUpload,handleUploadPresigned} from '@vercel/blob/client';
-import {issueSignedToken} from '@vercel/blob';
+import {randomUUID} from 'node:crypto';
 import {requireOwner} from '../lib/auth.mjs';
-import {blobConfigured,presignedUploads} from '../lib/blob-config.mjs';
-import {json,fail,readBody,report,sameOrigin} from '../lib/http.mjs';
-
-export function uploadOptions(pathname,payload) {
-  if(!/^media\/[a-f0-9-]{36}\.(mp4|webm|jpg|jpeg|png|webp)$/.test(pathname))fail('Invalid upload path.');
-  let info;
-  try{info=JSON.parse(payload);}catch{fail('Invalid upload details.');}
-  const types={mp4:'video/mp4',webm:'video/webm',jpg:'image/jpeg',jpeg:'image/jpeg',png:'image/png',webp:'image/webp'};
-  const type=types[pathname.split('.').pop()];
-  const limit=type.startsWith('video/')?2*1024**3:20*1024**2;
-  if(!info||info.type!==type||!Number.isInteger(info.size)||info.size<1||info.size>limit)fail('Check the file type and size.');
-  return {allowedContentTypes:[type],maximumSizeInBytes:limit,addRandomSuffix:false,allowOverwrite:false,validUntil:Date.now()+60*60*1000};
-}
-export async function signedUpload(pathname,payload,issue=issueSignedToken) {
-  const urlOptions=uploadOptions(pathname,payload);
-  const {allowedContentTypes,maximumSizeInBytes,validUntil}=urlOptions;
-  const token=await issue({pathname,operations:['put'],allowedContentTypes,maximumSizeInBytes,validUntil});
-  return {token,urlOptions};
-}
-export async function POST(request) {
-  try {
-    const body=await readBody(request);
-    if(body.type!=='blob.upload-completed'){
-      requireOwner(request);sameOrigin(request);
-      if(!blobConfigured())fail('Connect a public Vercel Blob store first.',503);
-      if(!['blob.generate-client-token','blob.generate-presigned-url'].includes(body.type))fail('Invalid upload request.');
-    }
-    const authorize=()=>{requireOwner(request);sameOrigin(request);};
-    const result=presignedUploads()
-      ? await handleUploadPresigned({request,body,getSignedToken:async(pathname,payload)=>{authorize();return signedUpload(pathname,payload);}})
-      : await handleUpload({request,body,onBeforeGenerateToken:async(pathname,payload)=>{authorize();return uploadOptions(pathname,payload);}});
-    return json(result);
-  }catch(error){return report(error);}
-}
+import {commitFile} from '../lib/storage.mjs';
+import {json,fail,report,sameOrigin} from '../lib/http.mjs';
+export async function POST(request){try{
+ requireOwner(request);sameOrigin(request);
+ const type=request.headers.get('content-type');
+ const ext={'image/jpeg':'jpg','image/png':'png','image/webp':'webp'}[type];
+ if(!ext)fail('Choose a JPG, PNG or WebP image.');
+ if(Number(request.headers.get('content-length'))>2*1024**2)fail('Images must be smaller than 2 MB.',413);
+ const bytes=Buffer.from(await request.arrayBuffer());
+ if(!bytes.length||bytes.length>2*1024**2)fail('Images must be smaller than 2 MB.',413);
+ const valid=ext==='jpg'?bytes[0]===255&&bytes[1]===216&&bytes[2]===255:ext==='png'?bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])):bytes.toString('ascii',0,4)==='RIFF'&&bytes.toString('ascii',8,12)==='WEBP';
+ if(!valid)fail('The file does not match its image type.');
+ const path='media/'+randomUUID()+'.'+ext;
+ await commitFile('public/'+path,bytes,null,'Add portfolio image');
+ return json({url:'/'+path});
+}catch(error){return report(error);}}
