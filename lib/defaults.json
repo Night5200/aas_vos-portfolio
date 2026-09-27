@@ -78,6 +78,27 @@
       "description": "",
       "featured": 0,
       "videoShape": "landscape"
+    },
+    {
+      "id": "cf782e32-c0f3-4c07-be1d-4d3c771f5b50",
+      "title": "Vodafone Idea",
+      "type": "Digital Film / Branded Content",
+      "role": "Editor",
+      "description": "",
+      "video": "https://fast.wistia.net/embed/iframe/9g2on2s9k1",
+      "poster": "/media/4abce9ed-b340-4c3a-ad95-d3ccdd495dba.png",
+      "featured": 0,
+      "videoShape": "portrait"
+    },
+    {
+      "id": "748fa37b-dd43-4c44-9edd-b83445ebeb53",
+      "title": "Film Reaction Video - Sony Pictures",
+      "type": "Film Promotion",
+      "role": "Editor",
+      "description": "Edited a pre-release reaction video for Evil Dead Burn, featuring a well-known actress. My work involved shaping the footage into a clean, engaging promotional edit and preparing the final video for release as part of the film’s marketing campaign.",
+      "video": "https://fast.wistia.net/embed/iframe/qmseuvq058",
+      "poster": "/media/56d8d029-f9a2-48c4-b48f-49304647d803.png",
+      "featured": 0
     }
   ],
   "brands": [
