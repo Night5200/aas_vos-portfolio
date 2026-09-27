@@ -46,7 +46,29 @@ const brands=portfolio.brands||[];
  const section=document.createElement('section');section.className='brands';
  const heading=document.createElement('h2');heading.className='section-label';heading.textContent="Brands I’ve worked with";
  const list=document.createElement('div');list.className='brand-logos';
- for(const brand of brands){const item=document.createElement('figure'),logo=document.createElement('img'),caption=document.createElement('figcaption');logo.src=brand.logo;logo.alt=brand.name;logo.loading='lazy';caption.textContent=brand.name;item.append(logo,caption);list.append(item);}
+ if(brands.length){
+  const track=document.createElement('div');track.className='brand-track';list.append(track);
+  const pause=document.createElement('button');pause.type='button';pause.className='brand-pause';pause.textContent='Pause logos';pause.setAttribute('aria-pressed','false');
+  pause.onclick=()=>{const paused=list.classList.toggle('paused');pause.textContent=paused?'Resume logos':'Pause logos';pause.setAttribute('aria-pressed',String(paused));};
+  section.append(pause);
+  function populate(){
+   track.replaceChildren();
+   const repeats=Math.max(1,Math.ceil(list.clientWidth/(brands.length*184)));
+   for(let copy=0;copy<2;copy++){
+    const group=document.createElement('div');group.className='brand-group';
+    if(copy)group.setAttribute('aria-hidden','true');
+    for(let repeat=0;repeat<repeats;repeat++)for(const brand of brands){
+     const item=document.createElement('span');item.className='brand-logo';
+     const logo=document.createElement('img');logo.src=brand.logo;logo.alt=copy||repeat?'':brand.name;
+     if(repeat)item.setAttribute('aria-hidden','true');
+     logo.decoding='async';item.append(logo);group.append(item);
+    }
+    track.append(group);
+   }
+   track.style.setProperty('--logo-duration',Math.max(20,brands.length*repeats*184/35)+'s');
+  }
+  new ResizeObserver(populate).observe(list);
+ }
  section.append(heading,list);document.querySelector('#about').after(section);
  if(!brands.length){
   const note=document.createElement('p');note.className='brands-empty';
