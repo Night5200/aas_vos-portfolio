@@ -105,3 +105,19 @@
     grid-template-columns: 1fr;
   }
 }
+
+.brand-logo {
+  flex: 0 0 264px;
+  width: 264px;
+  padding: 0 24px;
+}
+
+.brand-logo img {
+  width: 216px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.brand-logos {
+  padding: 28px 0;
+}
