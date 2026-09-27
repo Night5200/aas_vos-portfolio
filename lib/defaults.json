@@ -196,7 +196,8 @@
       "description": "",
       "video": "https://fast.wistia.net/embed/iframe/71o4ko8hap",
       "poster": "/media/a46e024a-95fb-4444-8b16-b33405b361c2.png",
-      "featured": 0
+      "featured": 0,
+      "videoShape": "portrait"
     },
     {
       "id": "a0f51cb2-87e1-46a9-aca9-7064c3577378",
@@ -206,7 +207,8 @@
       "description": "",
       "video": "https://fast.wistia.net/embed/iframe/9etthml03x",
       "poster": "/media/85b331f5-72cc-411b-acc6-e1ad357236a2.png",
-      "featured": 0
+      "featured": 0,
+      "videoShape": "portrait"
     }
   ],
   "brands": [
