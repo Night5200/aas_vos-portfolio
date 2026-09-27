@@ -53,7 +53,7 @@ const brands=portfolio.brands||[];
   section.append(pause);
   function populate(){
    track.replaceChildren();
-   const repeats=Math.max(1,Math.ceil(list.clientWidth/(brands.length*184)));
+   const repeats=Math.max(1,Math.ceil(list.clientWidth/(brands.length*264)));
    for(let copy=0;copy<2;copy++){
     const group=document.createElement('div');group.className='brand-group';
     if(copy)group.setAttribute('aria-hidden','true');
