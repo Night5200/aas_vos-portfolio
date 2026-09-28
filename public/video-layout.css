@@ -123,18 +123,63 @@
 }
 
 
-.project-player,
-.project-player .inline-player {
+/* Clip the player’s outer corners */
+.project-player {
+  overflow: hidden !important;
+  border-radius: 16px !important;
   border: 0 !important;
   box-shadow: none !important;
-  border-radius: 0 !important;
-  background: #111212 !important;
+  background: #000 !important;
+}
+
+.project-player .media,
+.project-player .inline-player {
+  border-radius: 16px !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: #000 !important;
+}
+
+/* Minimal logo strip matching the dark website */
+.brands {
+  padding: 32px 0;
 }
 
 .brand-logos {
-  background: #dedede;
-  padding: 28px 0;
-  border-radius: 8px;
-  mask-image: none;
-  -webkit-mask-image: none;
+  background: transparent;
+  border-radius: 0;
+  padding: 18px 0;
+  mask-image: linear-gradient(
+    to right, transparent, black 6%, black 94%, transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right, transparent, black 6%, black 94%, transparent
+  );
+}
+
+.brand-logo img {
+  width: auto;
+  max-width: 216px;
+  height: 80px;
+  object-fit: contain;
+  filter: brightness(0) invert(0.8);
+}
+
+.brand-pause {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  margin: 0;
+  font-size: 11px;
+}
+
+.brands .section-label {
+  padding-right: 90px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-logos {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
 }
