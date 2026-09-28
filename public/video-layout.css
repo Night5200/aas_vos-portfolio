@@ -162,7 +162,7 @@
   max-width: 216px;
   height: 80px;
   object-fit: contain;
-  filter: brightness(0) invert(0.8);
+  filter: none;
 }
 
 .brand-pause {
