@@ -300,7 +300,7 @@
       "name": "Sony yay",
       "logo": "/media/681e8337-16ff-4505-bc3e-b0a5e1719fe9.png",
       "scale": 2,
-      "lighten": true
+      "lighten": false
     },
     {
       "name": "Mixi",
