@@ -1,0 +1,6 @@
+.brands .brand-logos{background:transparent!important;border-radius:0;padding:24px 0;mask-image:linear-gradient(to right,transparent,black 5%,black 95%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 5%,black 95%,transparent)}
+.brands .brand-logo{height:144px}
+.brands .brand-logo img{display:block;width:auto!important;height:72px!important;max-width:180px!important;object-fit:contain;background:transparent;filter:none!important;transform:scale(var(--brand-scale,1));transform-origin:center}
+.brands .brand-logo img.lighten-logo{filter:invert(1) hue-rotate(180deg)!important}
+@media(max-width:650px){.brands .brand-logo{height:104px}.brands .brand-logo img{height:52px!important;max-width:140px!important}}
+@media(prefers-reduced-motion:reduce){.brands .brand-logos{mask-image:none;-webkit-mask-image:none}}

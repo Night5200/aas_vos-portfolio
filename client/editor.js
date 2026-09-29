@@ -52,7 +52,17 @@ function brands(){
  const row=document.createElement('div');row.className='fields';
  const remove=document.createElement('button');remove.type='button';remove.textContent='Remove brand';
  remove.onclick=()=>{if(pending)return;state.brands.splice(index,1);changed();brands();};
- row.append(field('Brand name',brand.name,value=>brand.name=value),uploadControl('Brand logo',brand.logo,'image',url=>brand.logo=url),remove);section.append(row);
+ const darkLabel=document.createElement('label');darkLabel.textContent='Dark logo — lighten for dark background';
+ const dark=document.createElement('input');dark.type='checkbox';dark.checked=Boolean(brand.lighten);
+ dark.onchange=()=>{brand.lighten=dark.checked;changed();};darkLabel.append(dark);
+ const scaleLabel=document.createElement('label');scaleLabel.textContent='Logo size (adjust for padding in your 512 × 512 image)';
+ const scale=document.createElement('input');scale.type='range';scale.min='0.75';scale.max='2';scale.step='0.05';scale.value=brand.scale||1;
+ const preview=document.createElement('img');preview.src=brand.logo;preview.alt=brand.name;preview.style.cssText='width:120px;height:90px;object-fit:contain;background:#111212';
+ const updatePreview=()=>{preview.style.filter=dark.checked?'invert(1) hue-rotate(180deg)':'none';preview.style.transform='scale('+scale.value+')';};
+ dark.addEventListener('change',updatePreview);
+ scale.oninput=()=>{brand.scale=Number(scale.value);changed();updatePreview();};scaleLabel.append(scale);
+ const previewBox=document.createElement('div');previewBox.style.cssText='height:190px;display:grid;place-items:center;overflow:hidden;background:#111212';previewBox.append(preview);updatePreview();
+ row.append(field('Brand name',brand.name,value=>brand.name=value),uploadControl('Brand logo',brand.logo,'image',url=>{brand.logo=url;preview.src=url;}),darkLabel,scaleLabel,previewBox,remove);section.append(row);
  });
 }
 function software(){
