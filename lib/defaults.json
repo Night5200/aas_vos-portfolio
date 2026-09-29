@@ -287,23 +287,31 @@
     },
     {
       "name": "Coke Stuio",
-      "logo": "/media/dfed1e32-2e51-46d6-b306-c089922c3871.png"
+      "logo": "/media/dfed1e32-2e51-46d6-b306-c089922c3871.png",
+      "scale": 2,
+      "lighten": true
     },
     {
       "name": "Crunchyroll",
-      "logo": "/media/96b7ff29-d96e-4a88-a253-705e9fcb83df.png"
+      "logo": "/media/96b7ff29-d96e-4a88-a253-705e9fcb83df.png",
+      "scale": 2
     },
     {
       "name": "Sony yay",
-      "logo": "/media/aa2eb0f4-f5cf-489d-ab52-d670c7ed46e8.png"
+      "logo": "/media/aa2eb0f4-f5cf-489d-ab52-d670c7ed46e8.png",
+      "scale": 2
     },
     {
       "name": "Mixi",
-      "logo": "/media/a7025163-bd37-4666-b184-b60c40a1a8f8.png"
+      "logo": "/media/a7025163-bd37-4666-b184-b60c40a1a8f8.png",
+      "lighten": true,
+      "scale": 2
     },
     {
       "name": "INA Solar",
-      "logo": "/media/c2a9df42-54a9-4eee-86a2-0d7a0efad9cd.png"
+      "logo": "/media/c2a9df42-54a9-4eee-86a2-0d7a0efad9cd.png",
+      "lighten": false,
+      "scale": 2
     },
     {
       "name": "Vi - Vodafone India",
