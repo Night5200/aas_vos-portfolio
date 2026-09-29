@@ -299,7 +299,8 @@
     {
       "name": "Sony yay",
       "logo": "/media/aa2eb0f4-f5cf-489d-ab52-d670c7ed46e8.png",
-      "scale": 2
+      "scale": 2,
+      "lighten": true
     },
     {
       "name": "Mixi",
