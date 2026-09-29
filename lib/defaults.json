@@ -281,27 +281,29 @@
   "brands": [
     {
       "name": "Thums Up",
-      "logo": "/media/bb05d71a-c9d0-4731-85f8-8da29844bd68.png"
+      "logo": "/media/737990d4-bbea-4fe9-99d3-4e747ce7266d.png",
+      "scale": 2,
+      "lighten": false
     },
     {
       "name": "Coke Stuio",
-      "logo": "/media/fd6b05a9-dce4-43a4-964c-b785ae7d156b.png"
+      "logo": "/media/dfed1e32-2e51-46d6-b306-c089922c3871.png"
     },
     {
       "name": "Crunchyroll",
-      "logo": "/media/0430caf1-5bb3-4aee-9d51-e49cc5d860a3.png"
+      "logo": "/media/96b7ff29-d96e-4a88-a253-705e9fcb83df.png"
     },
     {
       "name": "Sony yay",
-      "logo": "/media/fc0e3b18-bc1f-4474-9d34-0da4901322bf.png"
+      "logo": "/media/aa2eb0f4-f5cf-489d-ab52-d670c7ed46e8.png"
     },
     {
       "name": "Mixi",
-      "logo": "/media/8806ebfd-6941-42ac-8c2d-8016705318ee.png"
+      "logo": "/media/a7025163-bd37-4666-b184-b60c40a1a8f8.png"
     },
     {
       "name": "INA Solar",
-      "logo": "/media/be6f50dc-7348-4636-a0e8-8f89dedb786c.png"
+      "logo": "/media/c2a9df42-54a9-4eee-86a2-0d7a0efad9cd.png"
     },
     {
       "name": "Vi - Vodafone India",
