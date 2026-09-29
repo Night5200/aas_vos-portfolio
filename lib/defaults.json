@@ -316,47 +316,64 @@
     },
     {
       "name": "Vi - Vodafone India",
-      "logo": "/media/5bcfb3ed-ff0a-4254-a3bf-edf576cbb777.png"
+      "logo": "/media/5bcfb3ed-ff0a-4254-a3bf-edf576cbb777.png",
+      "scale": 2
     },
     {
       "name": "Astral pipes",
-      "logo": "/media/8468a17a-e43d-4f88-a191-c989138f686e.png"
+      "logo": "/media/8468a17a-e43d-4f88-a191-c989138f686e.png",
+      "scale": 2
     },
     {
       "name": "Rushr",
-      "logo": "/media/f20e7b0e-5e7e-4fb5-bb24-bb62782b11a0.png"
+      "logo": "/media/f20e7b0e-5e7e-4fb5-bb24-bb62782b11a0.png",
+      "scale": 2,
+      "lighten": true
     },
     {
       "name": "Bellavita",
-      "logo": "/media/69b50ebb-2de9-42c2-820b-930223ad15f1.png"
+      "logo": "/media/69b50ebb-2de9-42c2-820b-930223ad15f1.png",
+      "scale": 2,
+      "lighten": true
     },
     {
       "name": "Fireboltt",
-      "logo": "/media/cae48094-f563-499f-83a4-0ae08bbd510b.png"
+      "logo": "/media/cae48094-f563-499f-83a4-0ae08bbd510b.png",
+      "scale": 2,
+      "lighten": true
     },
     {
       "name": "Beardo",
-      "logo": "/media/2e8cdeea-60c2-43a8-9842-97b11db749d3.png"
+      "logo": "/media/2e8cdeea-60c2-43a8-9842-97b11db749d3.png",
+      "scale": 2
     },
     {
       "name": "Dhurandhar",
-      "logo": "/media/4a9dec8c-aa27-41fe-8130-adf0a088a3bc.png"
+      "logo": "/media/4a9dec8c-aa27-41fe-8130-adf0a088a3bc.png",
+      "scale": 2
     },
     {
       "name": "Spider man",
-      "logo": "/media/53e28acd-866f-4c99-88e1-c8d25b5c7520.png"
+      "logo": "/media/53e28acd-866f-4c99-88e1-c8d25b5c7520.png",
+      "scale": 2
     },
     {
       "name": "SHEIN",
-      "logo": "/media/e6e07013-70e5-4361-bb1f-1c20f2537d66.png"
+      "logo": "/media/e6e07013-70e5-4361-bb1f-1c20f2537d66.png",
+      "lighten": true,
+      "scale": 2
     },
     {
       "name": "GIVA",
-      "logo": "/media/94a2b704-f155-41a0-a399-d67fe0c2938a.png"
+      "logo": "/media/94a2b704-f155-41a0-a399-d67fe0c2938a.png",
+      "lighten": true,
+      "scale": 2
     },
     {
       "name": "ZARA",
-      "logo": "/media/fb0ec7c9-f974-4789-89e4-62e03fb62e0e.png"
+      "logo": "/media/fb0ec7c9-f974-4789-89e4-62e03fb62e0e.png",
+      "scale": 2,
+      "lighten": true
     }
   ]
 }
